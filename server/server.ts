@@ -1,7 +1,6 @@
-const express = require("express");
+import express from "express";
 import { Request, Response } from "express";
-const api = require("./api");
-const path = require("path");
+import api from "./api";
 
 const app = express();
 const port = 3000;

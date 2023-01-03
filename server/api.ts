@@ -1,4 +1,4 @@
-const express = require("express");
+import express from "express";
 import { NextFunction, Request, Response } from "express";
 
 const router = express.Router();
@@ -13,4 +13,4 @@ router.post("/test", (req: Request, res: Response) => {
   res.status(200).send({ message: "Received!" });
 });
 
-module.exports = router;
+export default router;
