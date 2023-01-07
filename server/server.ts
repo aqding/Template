@@ -1,6 +1,7 @@
 import express from "express";
 import { Request, Response } from "express";
 import api from "./api";
+import http from "http";
 
 const app = express();
 const port = process.env.port || 3000;
@@ -15,6 +16,7 @@ app.all("*", (req: Request, res: Response) => {
   });
 });
 
-app.listen(port, () => {
-  console.log(`App listening on port ${port}`);
+const server = http.createServer(app);
+server.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
 });
