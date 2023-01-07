@@ -10,7 +10,7 @@ router.get("/test", (req: Request, res: Response) => {
 
 router.post("/test", (req: Request, res: Response) => {
   console.log(req.body);
-  res.status(200).send({ message: "Received!" });
+  res.status(200).send({ message: "Cool!" });
 });
 
 export default router;
