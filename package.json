@@ -2,7 +2,7 @@
   "name": "template",
   "version": "1.0.0",
   "description": "A template for building web applications",
-  "main": ".",
+  "main": "./server/dist/server.js",
   "scripts": {
     "build": "webpack && cd server && npx tsc",
     "dev": "nodemon server/server.ts",
