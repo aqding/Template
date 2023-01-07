@@ -7,7 +7,7 @@ const App = () => {
       .then((res) => res.json())
       .then((res) => console.log(res));
   });
-  return <div>This is our app and it is hot reloading!</div>;
+  return <div>This is our app and it is hot reloading! Cool!</div>;
 };
 
 export default App;

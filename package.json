@@ -4,9 +4,10 @@
   "description": "A template for building web applications",
   "main": ".",
   "scripts": {
-    "build": "webpack",
-    "dev": "cd server && npx tsc",
-    "start": "npx webpack serve"
+    "build": "webpack && cd server && npx tsc",
+    "dev": "nodemon server/server.ts",
+    "hotloader": "npx webpack serve",
+    "start": "nodemon server/dist/server.js"
   },
   "author": "Allen Ding",
   "license": "ISC",
