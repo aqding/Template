@@ -12,7 +12,7 @@ dotenv.config({});
 const app = express();
 
 // Set the port
-app.set("port", process.env.PORT || 3000);
+// app.set("port", process.env.PORT || 3000);
 
 // Parse incoming requests with JSON payloads ('content-type: application/json' in header)
 app.use(express.json());
@@ -31,8 +31,8 @@ app.all("*", (req: Request, res: Response) => {
 
 // Create server to listen to request at specified port
 const server = http.createServer(app);
-server.listen(app.get("port"), () => {
+server.listen(process.env.PORT || 3000, () => {
   console.log(
-    `Express server running at http://localhost:${app.get("port") as number}`
+    `Express server running at http://localhost:${process.env.PORT || 3000}`
   );
 });
