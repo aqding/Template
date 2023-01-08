@@ -7,7 +7,8 @@
     "dev": "nodemon server/server.ts",
     "hotloader": "npx webpack serve",
     "start": "nodemon server/dist/server.js",
-    "build": "cd server && npx tsc && mv ./dist ../api && cd ../api && mv server.js index.js && cd ../ && ls"
+    "build": "webpack && cd server && npx tsc",
+    "vercel": "npm run build && mv ./server/dist ./api && mv api/server.js api/index.js"
   },
   "author": "Allen Ding",
   "license": "ISC",
