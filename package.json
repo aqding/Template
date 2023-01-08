@@ -4,11 +4,10 @@
   "description": "A template for building web applications",
   "main": "./server/dist/server.js",
   "scripts": {
-    "build": "webpack && cd server && npx tsc",
     "dev": "nodemon server/server.ts",
     "hotloader": "npx webpack serve",
     "start": "nodemon server/dist/server.js",
-    "vercel-build": "webpack"
+    "build": "webpack && cd server && npx tsc && cd ../api && mv server.js index.js"
   },
   "author": "Allen Ding",
   "license": "ISC",
