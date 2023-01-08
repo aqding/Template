@@ -19,7 +19,7 @@ app.all("*", (req: Request, res: Response) => {
   });
 });
 
-const server = http.createServer(app);
-server.listen(port, () => {
+// const server = http.createServer(app);
+app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
