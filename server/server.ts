@@ -3,8 +3,26 @@ import { Request, Response } from "express";
 import api from "./api";
 import http from "http";
 import dotenv from "dotenv";
+import mongoose from "mongoose";
 
 dotenv.config();
+
+const mongoConnection = process.env.MONGO_SRV;
+if (!mongoConnection) {
+  throw new Error(
+    "Please add the Mongo SRV as an environment variable named MONGO_SRV"
+  );
+}
+
+mongoose
+  .connect(mongoConnection)
+  .then(() => {
+    console.log("Connected to Mongo");
+  })
+  .catch((err) => {
+    `Error connecting to Mongo; ${err}`;
+  });
+
 const app = express();
 const port = process.env.PORT || 3000;
 

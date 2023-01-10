@@ -1,7 +1,10 @@
 import express from "express";
 import { NextFunction, Request, Response } from "express";
+import UserRouter from "./User/router";
 
 const router = express.Router();
+
+router.use("/user", UserRouter);
 
 router.get("/test", (req: Request, res: Response) => {
   console.log("Received!");
