@@ -11,13 +11,13 @@ const App = () => {
   return (
     <div>
       This is our app!{" "}
-      <a href="/testpath">
+      <Link to="/testpath">
         Click me
         {/* <Routes>
           <Route path="/test" element={<TestPage />}></Route>
         </Routes> */}
         <Outlet />
-      </a>
+      </Link>
     </div>
   );
 };
