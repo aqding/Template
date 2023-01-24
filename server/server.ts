@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import session from "express-session";
 import MongoStore from "connect-mongo";
+import path from "path";
 
 // Load in environment variables
 dotenv.config();
@@ -66,6 +67,9 @@ app.use(
 
 // Connect all API requests
 app.use("/api", api);
+
+const staticPath = path.resolve(__dirname, "..", "client", "dist");
+app.use(express.static(staticPath));
 
 // Catch unmatched paths
 app.all("*", (req: Request, res: Response) => {
