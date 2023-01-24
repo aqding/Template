@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
+import { get, post, patch, put, del } from "./utilities";
 
 const App = () => {
   useEffect(() => {
     console.log("Hello");
-    fetch("/api/test")
-      .then((res) => res.json())
-      .then((res) => console.log(res));
+    get("/api/user/session").then((res) => console.log(res));
   });
-  return <div>This is our app and it is hot reloading! Cool!</div>;
+  return <div>This is our app!</div>;
 };
 
 export default App;

@@ -54,7 +54,7 @@ app.use(express.json());
 // for more information
 app.use(
   session({
-    resave: false, // Do not continiously resave session data; see line 59
+    resave: false, // Do not continiously resave session data; see store settings below
     saveUninitialized: false, // Do not save sessions that are not initialized
     secret: process.env.SECRET, // Secret for signing cookie
     store: MongoStore.create({
