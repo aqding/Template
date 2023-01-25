@@ -73,7 +73,7 @@ const staticPath = path.resolve(__dirname, "..", "client", "dist");
 app.use(express.static(staticPath));
 
 // Catch unmatched paths, and send back index.html so react-router can handle it
-app.all("*", (req: Request, res: Response) => {
+app.get("/*", (req: Request, res: Response) => {
   res.sendFile(path.join(staticPath, "index.html"));
 });
 

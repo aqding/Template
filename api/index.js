@@ -55,7 +55,7 @@ app.use("/api", api_1.default);
 const staticPath = path_1.default.resolve(__dirname, "..", "client", "dist");
 app.use(express_1.default.static(staticPath));
 // Catch unmatched paths, and send back index.html so react-router can handle it
-app.all("*", (req, res) => {
+app.get("/*", (req, res) => {
     res.sendFile(path_1.default.join(staticPath, "index.html"));
 });
 // Create the server and listen on the specified port
