@@ -10,6 +10,7 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const express_session_1 = __importDefault(require("express-session"));
 const connect_mongo_1 = __importDefault(require("connect-mongo"));
+const path_1 = __importDefault(require("path"));
 // Load in environment variables
 dotenv_1.default.config();
 // Check environment variables
@@ -50,11 +51,12 @@ app.use((0, express_session_1.default)({
 }));
 // Connect all API requests
 app.use("/api", api_1.default);
-// Catch unmatched paths
+// Allow serving of static files from dist
+const staticPath = path_1.default.resolve(__dirname, "..", "client", "dist");
+app.use(express_1.default.static(staticPath));
+// Catch unmatched paths, and send back index.html so react-router can handle it
 app.all("*", (req, res) => {
-    res.status(404).send({
-        error: "Could not find the endpoint",
-    });
+    res.sendFile(path_1.default.join(staticPath, "index.html"));
 });
 // Create the server and listen on the specified port
 const server = http_1.default.createServer(app);
