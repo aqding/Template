@@ -28,5 +28,6 @@ module.exports = {
       "/api": "http://localhost:3000",
     },
     static: "./client/dist",
+    historyApiFallback: true,
   },
 };
