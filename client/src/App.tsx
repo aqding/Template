@@ -13,9 +13,6 @@ const App = () => {
       This is our app!{" "}
       <Link to="/testpath">
         Click me
-        {/* <Routes>
-          <Route path="/test" element={<TestPage />}></Route>
-        </Routes> */}
         <Outlet />
       </Link>
     </div>

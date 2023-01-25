@@ -68,14 +68,13 @@ app.use(
 // Connect all API requests
 app.use("/api", api);
 
+// Allow serving of static files from dist
 const staticPath = path.resolve(__dirname, "..", "client", "dist");
 app.use(express.static(staticPath));
 
-// Catch unmatched paths
+// Catch unmatched paths, and send back index.html so react-router can handle it
 app.all("*", (req: Request, res: Response) => {
-  res.status(404).send({
-    error: "Could not find the endpoint",
-  });
+  res.sendFile(path.join(staticPath, "index.html"));
 });
 
 // Create the server and listen on the specified port
