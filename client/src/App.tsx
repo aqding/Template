@@ -1,11 +1,14 @@
 import React, { useEffect } from "react";
 import { get, post, patch, put, del } from "./utilities";
 import { Link, Outlet } from "react-router-dom";
+import { User } from "../../server/User/model";
 
 const App = () => {
   useEffect(() => {
     console.log("Hello");
-    get("/api/user/session").then((res) => console.log(res));
+    get<{ message: string; user: User }>("/api/user/session").then((res) =>
+      console.log(res.user)
+    );
   });
   return (
     <div>
